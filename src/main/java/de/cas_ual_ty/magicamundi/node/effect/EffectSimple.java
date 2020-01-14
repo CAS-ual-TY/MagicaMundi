@@ -1,4 +1,4 @@
-package de.cas_ual_ty.magicamundi.effect;
+package de.cas_ual_ty.magicamundi.node.effect;
 
 import java.util.List;
 

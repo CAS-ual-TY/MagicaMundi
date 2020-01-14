@@ -1,4 +1,4 @@
-package de.cas_ual_ty.magicamundi.sorter;
+package de.cas_ual_ty.magicamundi.node.sorter;
 
 import java.util.List;
 

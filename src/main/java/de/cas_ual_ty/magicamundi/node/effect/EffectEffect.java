@@ -1,4 +1,4 @@
-package de.cas_ual_ty.magicamundi.effect;
+package de.cas_ual_ty.magicamundi.node.effect;
 
 import de.cas_ual_ty.magicamundi.target.Target;
 import net.minecraft.nbt.CompoundNBT;
