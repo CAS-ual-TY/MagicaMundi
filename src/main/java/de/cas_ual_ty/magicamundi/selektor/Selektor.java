@@ -8,21 +8,24 @@ import de.cas_ual_ty.magicamundi.util.MMUtility;
 import de.cas_ual_ty.visibilis.datatype.DataType;
 import de.cas_ual_ty.visibilis.node.ExecProvider;
 import de.cas_ual_ty.visibilis.node.Node;
+import de.cas_ual_ty.visibilis.node.field.Input;
 import de.cas_ual_ty.visibilis.node.field.Output;
 import de.cas_ual_ty.visibilis.util.VUtility;
 
 public abstract class Selektor extends Node
 {
-    public final Output<Object> outExec;
-    public final Output<List<Target>> outTargetsList;
+    public final Output<Object> out1Exec;
+    public final Output<List<Target>> out2TargetsList;
+    public final Input<Object> in1Exec;
     
     public final List<Target> targetsList;
     
     public Selektor()
     {
         super();
-        this.addOutput(this.outExec = new Output<>(this, DataType.EXEC, "exec"));
-        this.addOutput(this.outTargetsList = new Output<>(this, MMDataType.TARGETS_LIST, "targets_list"));
+        this.addOutput(this.out1Exec = new Output<>(this, DataType.EXEC, "out1"));
+        this.addOutput(this.out2TargetsList = new Output<>(this, MMDataType.TARGETS_LIST, "out2"));
+        this.addInput(this.in1Exec = new Input<>(this, DataType.EXEC, "in1"));
         this.targetsList = MMUtility.createTargetsList();
     }
     
@@ -45,11 +48,23 @@ public abstract class Selektor extends Node
     @Override
     public <O> O getOutputValue(Output<O> out)
     {
-        if(out == this.outTargetsList)
+        if(out == this.out2TargetsList)
         {
             return VUtility.cast(this.targetsList);
         }
         
         return null;
+    }
+    
+    @Override
+    public float[] getColor()
+    {
+        return MMDataType.TARGETS_LIST.getColor();
+    }
+    
+    @Override
+    public float[] getTextColor()
+    {
+        return MMDataType.TARGETS_LIST.getTextColor();
     }
 }

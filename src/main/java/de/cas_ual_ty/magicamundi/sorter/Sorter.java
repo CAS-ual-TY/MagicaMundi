@@ -1,8 +1,9 @@
-package de.cas_ual_ty.magicamundi.target;
+package de.cas_ual_ty.magicamundi.sorter;
 
 import java.util.List;
 
 import de.cas_ual_ty.magicamundi.datatype.MMDataType;
+import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.magicamundi.util.MMUtility;
 import de.cas_ual_ty.visibilis.datatype.DataType;
 import de.cas_ual_ty.visibilis.node.ExecProvider;
@@ -14,11 +15,14 @@ import de.cas_ual_ty.visibilis.util.VUtility;
 
 public abstract class Sorter extends Node implements INodeExec
 {
-    public final Output<Object> outExec;
-    public final Output<List<Target>> outTargetsList1;
-    public final Output<List<Target>> outTargetsList2;
-    public final Input<Object> inExec;
-    public final Input<List<Target>> inTargetsList;
+    public static final float[] COLOR = new float[] { 0.016F, 0.235F, 0.961F }; // #43cf56
+    public static final float[] COLOR_TEXT = new float[] { 1F, 1F, 1F };
+    
+    public final Output<Object> out1Exec;
+    public final Output<List<Target>> out2TargetsList;
+    public final Output<List<Target>> out3TargetsList;
+    public final Input<Object> in1Exec;
+    public final Input<List<Target>> in2TargetsList;
     
     public List<Target> targetsList1;
     public final List<Target> targetsList2;
@@ -26,11 +30,11 @@ public abstract class Sorter extends Node implements INodeExec
     public Sorter()
     {
         super();
-        this.addOutput(this.outExec = new Output<>(this, DataType.EXEC, "exec"));
-        this.addOutput(this.outTargetsList1 = new Output<>(this, MMDataType.TARGETS_LIST, "targets_list"));
-        this.addOutput(this.outTargetsList2 = new Output<>(this, MMDataType.TARGETS_LIST, "targets_list"));
-        this.addInput(this.inExec = new Input<>(this, DataType.EXEC, "exec"));
-        this.addInput(this.inTargetsList = new Input<>(this, MMDataType.TARGETS_LIST, "targets_list"));
+        this.addOutput(this.out1Exec = new Output<>(this, DataType.EXEC, "out1"));
+        this.addOutput(this.out2TargetsList = new Output<>(this, MMDataType.TARGETS_LIST, "out2"));
+        this.addOutput(this.out3TargetsList = new Output<>(this, MMDataType.TARGETS_LIST, "out3"));
+        this.addInput(this.in1Exec = new Input<>(this, DataType.EXEC, "in1"));
+        this.addInput(this.in2TargetsList = new Input<>(this, MMDataType.TARGETS_LIST, "in2"));
         this.targetsList2 = MMUtility.createTargetsList();
     }
     
@@ -38,7 +42,7 @@ public abstract class Sorter extends Node implements INodeExec
     public boolean doCalculate(ExecProvider provider)
     {
         this.targetsList2.clear();
-        this.targetsList1 = MMUtility.cloneTargetsList(this.inTargetsList.getValue());
+        this.targetsList1 = MMUtility.cloneTargetsList(this.in2TargetsList.getValue());
         return this.sortOut(this.targetsList1, this.targetsList2);
     }
     
@@ -56,11 +60,11 @@ public abstract class Sorter extends Node implements INodeExec
     @Override
     public <O> O getOutputValue(Output<O> out)
     {
-        if(out == this.outTargetsList1)
+        if(out == this.out2TargetsList)
         {
             return VUtility.cast(this.targetsList1);
         }
-        else if(out == this.outTargetsList2)
+        else if(out == this.out3TargetsList)
         {
             return VUtility.cast(this.targetsList2);
         }
@@ -71,6 +75,18 @@ public abstract class Sorter extends Node implements INodeExec
     @Override
     public Output<Object> getOutExec(int index)
     {
-        return index == 0 ? this.outExec : null;
+        return index == 0 ? this.out1Exec : null;
+    }
+    
+    @Override
+    public float[] getColor()
+    {
+        return Sorter.COLOR;
+    }
+    
+    @Override
+    public float[] getTextColor()
+    {
+        return Sorter.COLOR_TEXT;
     }
 }

@@ -13,22 +13,25 @@ import de.cas_ual_ty.visibilis.node.field.Output;
 
 public abstract class Effect extends Node implements INodeExec
 {
-    public final Output<Object> outExec;
-    public final Input<Object> inExec;
-    public final Input<List<Target>> inTargetsList;
+    public static final float[] COLOR = new float[] { 0.047F, 0.643F, 0.431F }; // #ca46e1
+    public static final float[] COLOR_TEXT = new float[] { 1F, 1F, 1F };
+    
+    public final Output<Object> out1Exec;
+    public final Input<Object> in1Exec;
+    public final Input<List<Target>> in2TargetsList;
     
     public Effect()
     {
         super();
-        this.addOutput(this.outExec = new Output<>(this, DataType.EXEC, "exec"));
-        this.addInput(this.inExec = new Input<>(this, DataType.EXEC, "exec"));
-        this.addInput(this.inTargetsList = new Input<>(this, MMDataType.TARGETS_LIST, "targets_list"));
+        this.addOutput(this.out1Exec = new Output<>(this, DataType.EXEC, "out1"));
+        this.addInput(this.in1Exec = new Input<>(this, DataType.EXEC, "in1"));
+        this.addInput(this.in2TargetsList = new Input<>(this, MMDataType.TARGETS_LIST, "in2"));
     }
     
     @Override
     public boolean doCalculate(ExecProvider provider)
     {
-        return this.applyEffect(this.inTargetsList.getValue());
+        return this.applyEffect(this.in2TargetsList.getValue());
     }
     
     /**
@@ -49,6 +52,18 @@ public abstract class Effect extends Node implements INodeExec
     @Override
     public Output<Object> getOutExec(int index)
     {
-        return index == 0 ? this.outExec : null;
+        return index == 0 ? this.out1Exec : null;
+    }
+    
+    @Override
+    public float[] getColor()
+    {
+        return Effect.COLOR;
+    }
+    
+    @Override
+    public float[] getTextColor()
+    {
+        return Effect.COLOR_TEXT;
     }
 }
