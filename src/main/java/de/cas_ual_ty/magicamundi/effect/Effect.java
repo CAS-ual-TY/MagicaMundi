@@ -1,7 +1,9 @@
 package de.cas_ual_ty.magicamundi.effect;
 
+import java.util.List;
+
 import de.cas_ual_ty.magicamundi.datatype.MMDataType;
-import de.cas_ual_ty.magicamundi.target.TargetsList;
+import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.visibilis.datatype.DataType;
 import de.cas_ual_ty.visibilis.node.ExecProvider;
 import de.cas_ual_ty.visibilis.node.INodeExec;
@@ -13,7 +15,7 @@ public abstract class Effect extends Node implements INodeExec
 {
     public final Output<Object> outExec;
     public final Input<Object> inExec;
-    public final Input<TargetsList> inTargetsList;
+    public final Input<List<Target>> inTargetsList;
     
     public Effect()
     {
@@ -36,7 +38,7 @@ public abstract class Effect extends Node implements INodeExec
      *            The list of targets to apply the effect to.
      * @return <b>false</b> if there was an error and the process could not be done (example: input variable was undefined or it's value not allowed or out of range).
      */
-    public abstract boolean applyEffect(TargetsList list);
+    public abstract boolean applyEffect(List<Target> list);
     
     @Override
     public <O> O getOutputValue(Output<O> out)
