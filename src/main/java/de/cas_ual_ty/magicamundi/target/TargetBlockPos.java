@@ -25,4 +25,17 @@ public class TargetBlockPos implements Target
     {
         return this.pos;
     }
+    
+    @Override
+    public boolean equals(Object target)
+    {
+        if(target instanceof TargetBlockPos)
+        {
+            return ((TargetBlockPos)target).getBlockPos().equals(this.getBlockPos());
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

@@ -47,6 +47,19 @@ public class TargetEntity implements Target
         return this.getEntity().getPositionVec();
     }
     
+    @Override
+    public boolean equals(Object target)
+    {
+        if(target instanceof TargetEntity)
+        {
+            return ((TargetEntity)target).getEntity() == this.getEntity();
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
     public Entity getEntity()
     {
         return this.entity;
