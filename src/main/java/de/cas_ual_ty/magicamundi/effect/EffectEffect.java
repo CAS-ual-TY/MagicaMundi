@@ -1,13 +1,11 @@
 package de.cas_ual_ty.magicamundi.effect;
 
-import java.util.List;
-
 import de.cas_ual_ty.magicamundi.target.Target;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 
-public class EffectEffect extends Effect
+public class EffectEffect extends EffectSimple
 {
     public static final String KEY_EFFECT_NAME = "effectName";
     
@@ -23,7 +21,7 @@ public class EffectEffect extends Effect
     }
     
     @Override
-    public boolean applyEffect(List<Target> list)
+    public boolean applyEffect(Target target)
     {
         // TODO apply vanilla effects
         return false;
