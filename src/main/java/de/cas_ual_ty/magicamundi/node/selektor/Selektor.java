@@ -2,14 +2,14 @@ package de.cas_ual_ty.magicamundi.node.selektor;
 
 import java.util.List;
 
-import de.cas_ual_ty.magicamundi.datatype.MMDataType;
+import de.cas_ual_ty.magicamundi.registries.MMDataTypes;
 import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.magicamundi.util.MMUtility;
-import de.cas_ual_ty.visibilis.datatype.DataType;
 import de.cas_ual_ty.visibilis.node.ExecProvider;
 import de.cas_ual_ty.visibilis.node.Node;
 import de.cas_ual_ty.visibilis.node.field.Input;
 import de.cas_ual_ty.visibilis.node.field.Output;
+import de.cas_ual_ty.visibilis.registries.VDataTypes;
 import de.cas_ual_ty.visibilis.util.VUtility;
 
 public abstract class Selektor extends Node
@@ -23,9 +23,9 @@ public abstract class Selektor extends Node
     public Selektor()
     {
         super();
-        this.addOutput(this.out1Exec = new Output<>(this, DataType.EXEC, "out1"));
-        this.addOutput(this.out2TargetsList = new Output<>(this, MMDataType.TARGETS_LIST, "out2"));
-        this.addInput(this.in1Exec = new Input<>(this, DataType.EXEC, "in1"));
+        this.addOutput(this.out1Exec = new Output<>(this, VDataTypes.EXEC, "out1"));
+        this.addOutput(this.out2TargetsList = new Output<>(this, MMDataTypes.TARGETS_LIST, "out2"));
+        this.addInput(this.in1Exec = new Input<>(this, VDataTypes.EXEC, "in1"));
         this.targetsList = MMUtility.createTargetsList();
     }
     
@@ -59,12 +59,12 @@ public abstract class Selektor extends Node
     @Override
     public float[] getColor()
     {
-        return MMDataType.TARGETS_LIST.getColor();
+        return MMDataTypes.TARGETS_LIST.getColor();
     }
     
     @Override
     public float[] getTextColor()
     {
-        return MMDataType.TARGETS_LIST.getTextColor();
+        return MMDataTypes.TARGETS_LIST.getTextColor();
     }
 }

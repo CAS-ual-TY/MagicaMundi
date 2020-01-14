@@ -2,14 +2,14 @@ package de.cas_ual_ty.magicamundi.node.effect;
 
 import java.util.List;
 
-import de.cas_ual_ty.magicamundi.datatype.MMDataType;
+import de.cas_ual_ty.magicamundi.registries.MMDataTypes;
 import de.cas_ual_ty.magicamundi.target.Target;
-import de.cas_ual_ty.visibilis.datatype.DataType;
 import de.cas_ual_ty.visibilis.node.ExecProvider;
 import de.cas_ual_ty.visibilis.node.INodeExec;
 import de.cas_ual_ty.visibilis.node.Node;
 import de.cas_ual_ty.visibilis.node.field.Input;
 import de.cas_ual_ty.visibilis.node.field.Output;
+import de.cas_ual_ty.visibilis.registries.VDataTypes;
 
 public abstract class Effect extends Node implements INodeExec
 {
@@ -23,9 +23,9 @@ public abstract class Effect extends Node implements INodeExec
     public Effect()
     {
         super();
-        this.addOutput(this.out1Exec = new Output<>(this, DataType.EXEC, "out1"));
-        this.addInput(this.in1Exec = new Input<>(this, DataType.EXEC, "in1"));
-        this.addInput(this.in2TargetsList = new Input<>(this, MMDataType.TARGETS_LIST, "in2"));
+        this.addOutput(this.out1Exec = new Output<>(this, VDataTypes.EXEC, "out1"));
+        this.addInput(this.in1Exec = new Input<>(this, VDataTypes.EXEC, "in1"));
+        this.addInput(this.in2TargetsList = new Input<>(this, MMDataTypes.TARGETS_LIST, "in2"));
     }
     
     @Override

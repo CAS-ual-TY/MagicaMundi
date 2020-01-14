@@ -2,15 +2,15 @@ package de.cas_ual_ty.magicamundi.node.sorter;
 
 import java.util.List;
 
-import de.cas_ual_ty.magicamundi.datatype.MMDataType;
+import de.cas_ual_ty.magicamundi.registries.MMDataTypes;
 import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.magicamundi.util.MMUtility;
-import de.cas_ual_ty.visibilis.datatype.DataType;
 import de.cas_ual_ty.visibilis.node.ExecProvider;
 import de.cas_ual_ty.visibilis.node.INodeExec;
 import de.cas_ual_ty.visibilis.node.Node;
 import de.cas_ual_ty.visibilis.node.field.Input;
 import de.cas_ual_ty.visibilis.node.field.Output;
+import de.cas_ual_ty.visibilis.registries.VDataTypes;
 import de.cas_ual_ty.visibilis.util.VUtility;
 
 public abstract class Sorter extends Node implements INodeExec
@@ -30,11 +30,11 @@ public abstract class Sorter extends Node implements INodeExec
     public Sorter()
     {
         super();
-        this.addOutput(this.out1Exec = new Output<>(this, DataType.EXEC, "out1"));
-        this.addOutput(this.out2TargetsList = new Output<>(this, MMDataType.TARGETS_LIST, "out2"));
-        this.addOutput(this.out3TargetsList = new Output<>(this, MMDataType.TARGETS_LIST, "out3"));
-        this.addInput(this.in1Exec = new Input<>(this, DataType.EXEC, "in1"));
-        this.addInput(this.in2TargetsList = new Input<>(this, MMDataType.TARGETS_LIST, "in2"));
+        this.addOutput(this.out1Exec = new Output<>(this, VDataTypes.EXEC, "out1"));
+        this.addOutput(this.out2TargetsList = new Output<>(this, MMDataTypes.TARGETS_LIST, "out2"));
+        this.addOutput(this.out3TargetsList = new Output<>(this, MMDataTypes.TARGETS_LIST, "out3"));
+        this.addInput(this.in1Exec = new Input<>(this, VDataTypes.EXEC, "in1"));
+        this.addInput(this.in2TargetsList = new Input<>(this, MMDataTypes.TARGETS_LIST, "in2"));
         this.targetsList2 = MMUtility.createTargetsList();
     }
     
