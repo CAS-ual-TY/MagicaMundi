@@ -5,7 +5,7 @@ import java.util.List;
 import de.cas_ual_ty.magicamundi.registries.MMDataTypes;
 import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.magicamundi.util.MMUtility;
-import de.cas_ual_ty.visibilis.node.ExecProvider;
+import de.cas_ual_ty.visibilis.node.ExecContext;
 import de.cas_ual_ty.visibilis.node.INodeExec;
 import de.cas_ual_ty.visibilis.node.Node;
 import de.cas_ual_ty.visibilis.node.field.Input;
@@ -39,7 +39,7 @@ public abstract class Sorter extends Node implements INodeExec
     }
     
     @Override
-    public boolean doCalculate(ExecProvider provider)
+    public boolean doCalculate(ExecContext provider)
     {
         this.targetsList2.clear();
         this.targetsList1 = MMUtility.cloneTargetsList(this.in2TargetsList.getValue());

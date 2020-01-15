@@ -5,7 +5,7 @@ import java.util.List;
 import de.cas_ual_ty.magicamundi.registries.MMDataTypes;
 import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.magicamundi.util.MMUtility;
-import de.cas_ual_ty.visibilis.node.ExecProvider;
+import de.cas_ual_ty.visibilis.node.ExecContext;
 import de.cas_ual_ty.visibilis.node.Node;
 import de.cas_ual_ty.visibilis.node.field.Input;
 import de.cas_ual_ty.visibilis.node.field.Output;
@@ -30,7 +30,7 @@ public abstract class Selektor extends Node
     }
     
     @Override
-    public boolean doCalculate(ExecProvider provider)
+    public boolean doCalculate(ExecContext provider)
     {
         this.targetsList.clear();
         return this.findTargets(this.targetsList);

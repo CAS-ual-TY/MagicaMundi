@@ -4,7 +4,7 @@ import java.util.List;
 
 import de.cas_ual_ty.magicamundi.registries.MMDataTypes;
 import de.cas_ual_ty.magicamundi.target.Target;
-import de.cas_ual_ty.visibilis.node.ExecProvider;
+import de.cas_ual_ty.visibilis.node.ExecContext;
 import de.cas_ual_ty.visibilis.node.INodeExec;
 import de.cas_ual_ty.visibilis.node.Node;
 import de.cas_ual_ty.visibilis.node.field.Input;
@@ -29,7 +29,7 @@ public abstract class Effect extends Node implements INodeExec
     }
     
     @Override
-    public boolean doCalculate(ExecProvider provider)
+    public boolean doCalculate(ExecContext provider)
     {
         return this.applyEffect(this.in2TargetsList.getValue());
     }
