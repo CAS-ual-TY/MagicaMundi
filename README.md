@@ -9,5 +9,5 @@ A spell is made up of 3 basic components:
  - **Selektors - Who** or what to affect (eg. everyone within 5m of you, all pigs, your cursor etc.)
  - **Effects - What** to do or how to affect the targets (eg. lighting, healing or damage, freezing etc.)
 
-### Using the **[Visibilis](https://github.com/CAS-ual-TY/Visibilis)**
+### Using the **[Visibilis Mod](https://github.com/CAS-ual-TY/Visibilis)**
 The entire visual coding part is done using Visibilis.
