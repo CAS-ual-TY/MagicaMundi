@@ -1,9 +1,8 @@
 package de.cas_ual_ty.magicamundi.node.effect;
 
 import de.cas_ual_ty.magicamundi.target.Target;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
+import de.cas_ual_ty.magicamundi.target.TargetEntity;
+import net.minecraft.entity.Entity;
 
 public class EffectEffect extends EffectSimple
 {
@@ -16,37 +15,24 @@ public class EffectEffect extends EffectSimple
         this.effect = effect;
     }
     
-    public EffectEffect()
-    {
-    }
-    
     @Override
-    public boolean applyEffect(Target target)
+    public boolean applyEffect(Target target0)
     {
-        // TODO apply vanilla effects
-        return false;
+        if(target0 instanceof TargetEntity)
+        {
+            TargetEntity target = (TargetEntity)target0;
+            if(target.isLivingEntity())
+            {
+                this.effect.affectEntity((Entity)null, (Entity)null, target.getLivingEntity(), 1, 1D);
+            }
+        }
+        
+        return true;
     }
     
     @Override
     public String getID()
     {
         return null;
-    }
-    
-    @Override
-    public void readNodeFromNBT(CompoundNBT nbt0)
-    {
-        ResourceLocation rl = new ResourceLocation(nbt0.getString(EffectEffect.KEY_EFFECT_NAME));
-        this.effect = Registry.EFFECTS.getValue(rl).orElse(null);
-        
-        super.readNodeFromNBT(nbt0);
-    }
-    
-    @Override
-    public void writeNodeToNBT(CompoundNBT nbt0)
-    {
-        nbt0.putString(EffectEffect.KEY_EFFECT_NAME, this.effect.getRegistryName().toString());
-        
-        super.writeNodeToNBT(nbt0);
     }
 }
