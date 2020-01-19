@@ -2,6 +2,7 @@ package de.cas_ual_ty.magicamundi.node.effect;
 
 import java.util.List;
 
+import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.target.Target;
 
 public abstract class EffectSimple extends Effect
@@ -11,11 +12,11 @@ public abstract class EffectSimple extends Effect
     }
     
     @Override
-    public boolean applyEffect(List<Target> list)
+    public boolean applyEffect(MMDataProvider data, List<Target> list)
     {
         for(Target t : list)
         {
-            if(!this.applyEffect(t))
+            if(!this.applyEffect(data, t))
             {
                 return false;
             }
@@ -24,5 +25,5 @@ public abstract class EffectSimple extends Effect
         return true;
     }
     
-    public abstract boolean applyEffect(Target target);
+    public abstract boolean applyEffect(MMDataProvider data, Target target);
 }

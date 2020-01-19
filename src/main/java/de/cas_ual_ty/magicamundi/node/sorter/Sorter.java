@@ -2,18 +2,18 @@ package de.cas_ual_ty.magicamundi.node.sorter;
 
 import java.util.List;
 
+import de.cas_ual_ty.magicamundi.node.MMNode;
+import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.registries.MMDataTypes;
 import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.magicamundi.util.MMUtility;
-import de.cas_ual_ty.visibilis.node.ExecContext;
 import de.cas_ual_ty.visibilis.node.INodeExec;
-import de.cas_ual_ty.visibilis.node.Node;
 import de.cas_ual_ty.visibilis.node.field.Input;
 import de.cas_ual_ty.visibilis.node.field.Output;
 import de.cas_ual_ty.visibilis.registries.VDataTypes;
 import de.cas_ual_ty.visibilis.util.VUtility;
 
-public abstract class Sorter extends Node implements INodeExec
+public abstract class Sorter extends MMNode implements INodeExec
 {
     public static final float[] COLOR = new float[] { 0.016F, 0.235F, 0.961F }; // #43cf56
     public static final float[] COLOR_TEXT = new float[] { 1F, 1F, 1F };
@@ -39,11 +39,11 @@ public abstract class Sorter extends Node implements INodeExec
     }
     
     @Override
-    public boolean doCalculate(ExecContext provider)
+    public boolean doCalculate(MMDataProvider data)
     {
         this.targetsList2.clear();
         this.targetsList1 = MMUtility.cloneTargetsList(this.in2TargetsList.getValue());
-        return this.sortOut(this.targetsList1, this.targetsList2);
+        return this.sortOut(data, this.targetsList1, this.targetsList2);
     }
     
     /**
@@ -55,7 +55,7 @@ public abstract class Sorter extends Node implements INodeExec
      *            The List<Target> instance to add all removed targets to.
      * @return <b>false</b> if there was an error and the process could not be done (example: input variable was undefined or it's value not allowed or out of range).
      */
-    public abstract boolean sortOut(List<Target> list1, List<Target> list2);
+    public abstract boolean sortOut(MMDataProvider data, List<Target> list1, List<Target> list2);
     
     @Override
     public <O> O getOutputValue(Output<O> out)

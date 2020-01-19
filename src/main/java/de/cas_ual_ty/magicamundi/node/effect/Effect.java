@@ -2,16 +2,16 @@ package de.cas_ual_ty.magicamundi.node.effect;
 
 import java.util.List;
 
+import de.cas_ual_ty.magicamundi.node.MMNode;
+import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.registries.MMDataTypes;
 import de.cas_ual_ty.magicamundi.target.Target;
-import de.cas_ual_ty.visibilis.node.ExecContext;
 import de.cas_ual_ty.visibilis.node.INodeExec;
-import de.cas_ual_ty.visibilis.node.Node;
 import de.cas_ual_ty.visibilis.node.field.Input;
 import de.cas_ual_ty.visibilis.node.field.Output;
 import de.cas_ual_ty.visibilis.registries.VDataTypes;
 
-public abstract class Effect extends Node implements INodeExec
+public abstract class Effect extends MMNode implements INodeExec
 {
     public static final float[] COLOR = new float[] { 0.047F, 0.643F, 0.431F }; // #ca46e1
     public static final float[] COLOR_TEXT = new float[] { 1F, 1F, 1F };
@@ -29,9 +29,9 @@ public abstract class Effect extends Node implements INodeExec
     }
     
     @Override
-    public boolean doCalculate(ExecContext provider)
+    public boolean doCalculate(MMDataProvider data)
     {
-        return this.applyEffect(this.in2TargetsList.getValue());
+        return this.applyEffect(data, this.in2TargetsList.getValue());
     }
     
     /**
@@ -41,7 +41,7 @@ public abstract class Effect extends Node implements INodeExec
      *            The list of targets to apply the effect to.
      * @return <b>false</b> if there was an error and the process could not be done (example: input variable was undefined or it's value not allowed or out of range).
      */
-    public abstract boolean applyEffect(List<Target> list);
+    public abstract boolean applyEffect(MMDataProvider data, List<Target> list);
     
     @Override
     public <O> O getOutputValue(Output<O> out)

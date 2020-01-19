@@ -2,6 +2,7 @@ package de.cas_ual_ty.magicamundi.node.sorter;
 
 import java.util.List;
 
+import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.target.Target;
 
 public abstract class SorterSimple extends Sorter
@@ -11,7 +12,7 @@ public abstract class SorterSimple extends Sorter
     }
     
     @Override
-    public boolean sortOut(List<Target> list1, List<Target> list2)
+    public boolean sortOut(MMDataProvider data, List<Target> list1, List<Target> list2)
     {
         for(Target t : list1)
         {
