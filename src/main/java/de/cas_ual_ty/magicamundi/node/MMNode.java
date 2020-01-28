@@ -3,10 +3,16 @@ package de.cas_ual_ty.magicamundi.node;
 import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
 import de.cas_ual_ty.visibilis.node.ExecContext;
 import de.cas_ual_ty.visibilis.node.Node;
+import de.cas_ual_ty.visibilis.node.NodeType;
 import de.cas_ual_ty.visibilis.node.field.Output;
 
 public abstract class MMNode extends Node
 {
+    public MMNode(NodeType<?> type)
+    {
+        super(type);
+    }
+    
     @Override
     public boolean doCalculate(ExecContext context)
     {

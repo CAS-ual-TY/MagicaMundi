@@ -18,11 +18,12 @@ public class MMDataTypes
 {
     public static final DataType<List<Target>> TARGETS_LIST = null;
     
+    @SuppressWarnings("unchecked")
     @SubscribeEvent
     public static void register(RegistryEvent.Register<DataType<?>> event)
     {
         IForgeRegistry<DataType<?>> registry = event.getRegistry();
         
-        registry.register(new DataType<List<Target>>(new float[] { 1F, 0.5F, 1F }).setRegistryName(MagicaMundi.MOD_ID, "targets_list"));
+        registry.register(new DataType<List<Target>>(new float[] { 1F, 0.5F, 1F }, (length) -> new List[length]).setRegistryName(MagicaMundi.MOD_ID, "targets_list"));
     }
 }

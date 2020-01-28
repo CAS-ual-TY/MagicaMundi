@@ -6,12 +6,12 @@ import de.cas_ual_ty.magicamundi.node.MMNode;
 import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.registries.MMDataTypes;
 import de.cas_ual_ty.magicamundi.target.Target;
-import de.cas_ual_ty.visibilis.node.INodeExec;
+import de.cas_ual_ty.visibilis.node.NodeType;
 import de.cas_ual_ty.visibilis.node.field.Input;
 import de.cas_ual_ty.visibilis.node.field.Output;
 import de.cas_ual_ty.visibilis.registries.VDataTypes;
 
-public abstract class Effect extends MMNode implements INodeExec
+public abstract class Effect extends MMNode
 {
     public static final float[] COLOR = new float[] { 0.047F, 0.643F, 0.431F }; // #ca46e1
     public static final float[] COLOR_TEXT = new float[] { 1F, 1F, 1F };
@@ -20,9 +20,9 @@ public abstract class Effect extends MMNode implements INodeExec
     public final Input<Object> in1Exec;
     public final Input<List<Target>> in2TargetsList;
     
-    public Effect()
+    public Effect(NodeType<?> type)
     {
-        super();
+        super(type);
         this.addOutput(this.out1Exec = new Output<>(this, VDataTypes.EXEC, "out1"));
         this.addInput(this.in1Exec = new Input<>(this, VDataTypes.EXEC, "in1"));
         this.addInput(this.in2TargetsList = new Input<>(this, MMDataTypes.TARGETS_LIST, "in2"));

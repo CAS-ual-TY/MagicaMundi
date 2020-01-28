@@ -4,11 +4,13 @@ import java.util.List;
 
 import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.target.Target;
+import de.cas_ual_ty.visibilis.node.NodeType;
 
 public abstract class EffectSimple extends Effect
 {
-    public EffectSimple()
+    public EffectSimple(NodeType<?> type)
     {
+        super(type);
     }
     
     @Override

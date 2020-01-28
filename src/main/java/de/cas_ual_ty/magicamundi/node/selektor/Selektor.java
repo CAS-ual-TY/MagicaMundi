@@ -7,6 +7,7 @@ import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.registries.MMDataTypes;
 import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.magicamundi.util.MMUtility;
+import de.cas_ual_ty.visibilis.node.NodeType;
 import de.cas_ual_ty.visibilis.node.field.Input;
 import de.cas_ual_ty.visibilis.node.field.Output;
 import de.cas_ual_ty.visibilis.registries.VDataTypes;
@@ -20,9 +21,9 @@ public abstract class Selektor extends MMNode
     
     public final List<Target> targetsList;
     
-    public Selektor()
+    public Selektor(NodeType<?> type)
     {
-        super();
+        super(type);
         this.addOutput(this.out1Exec = new Output<>(this, VDataTypes.EXEC, "out1"));
         this.addOutput(this.out2TargetsList = new Output<>(this, MMDataTypes.TARGETS_LIST, "out2"));
         this.addInput(this.in1Exec = new Input<>(this, VDataTypes.EXEC, "in1"));

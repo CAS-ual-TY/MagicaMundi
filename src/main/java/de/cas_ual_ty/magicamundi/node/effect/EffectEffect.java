@@ -3,6 +3,7 @@ package de.cas_ual_ty.magicamundi.node.effect;
 import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.magicamundi.target.TargetEntity;
+import de.cas_ual_ty.visibilis.node.NodeType;
 
 public class EffectEffect extends EffectSimple
 {
@@ -10,8 +11,9 @@ public class EffectEffect extends EffectSimple
     
     public net.minecraft.potion.Effect effect;
     
-    public EffectEffect(net.minecraft.potion.Effect effect)
+    public EffectEffect(NodeType<?> type, net.minecraft.potion.Effect effect)
     {
+        super(type);
         this.effect = effect;
     }
     

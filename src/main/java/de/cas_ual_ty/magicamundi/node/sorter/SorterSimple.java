@@ -4,11 +4,13 @@ import java.util.List;
 
 import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.target.Target;
+import de.cas_ual_ty.visibilis.node.NodeType;
 
 public abstract class SorterSimple extends Sorter
 {
-    public SorterSimple()
+    public SorterSimple(NodeType<?> type)
     {
+        super(type);
     }
     
     @Override

@@ -7,13 +7,13 @@ import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.registries.MMDataTypes;
 import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.magicamundi.util.MMUtility;
-import de.cas_ual_ty.visibilis.node.INodeExec;
+import de.cas_ual_ty.visibilis.node.NodeType;
 import de.cas_ual_ty.visibilis.node.field.Input;
 import de.cas_ual_ty.visibilis.node.field.Output;
 import de.cas_ual_ty.visibilis.registries.VDataTypes;
 import de.cas_ual_ty.visibilis.util.VUtility;
 
-public abstract class Sorter extends MMNode implements INodeExec
+public abstract class Sorter extends MMNode
 {
     public static final float[] COLOR = new float[] { 0.016F, 0.235F, 0.961F }; // #43cf56
     public static final float[] COLOR_TEXT = new float[] { 1F, 1F, 1F };
@@ -27,9 +27,9 @@ public abstract class Sorter extends MMNode implements INodeExec
     public List<Target> targetsList1;
     public final List<Target> targetsList2;
     
-    public Sorter()
+    public Sorter(NodeType<?> type)
     {
-        super();
+        super(type);
         this.addOutput(this.out1Exec = new Output<>(this, VDataTypes.EXEC, "out1"));
         this.addOutput(this.out2TargetsList = new Output<>(this, MMDataTypes.TARGETS_LIST, "out2"));
         this.addOutput(this.out3TargetsList = new Output<>(this, MMDataTypes.TARGETS_LIST, "out3"));
