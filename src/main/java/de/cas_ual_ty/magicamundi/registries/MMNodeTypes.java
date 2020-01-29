@@ -2,6 +2,7 @@ package de.cas_ual_ty.magicamundi.registries;
 
 import de.cas_ual_ty.magicamundi.MagicaMundi;
 import de.cas_ual_ty.magicamundi.node.selektor.Selektor;
+import de.cas_ual_ty.magicamundi.node.sorter.SorterSimple;
 import de.cas_ual_ty.magicamundi.target.TargetEntity;
 import de.cas_ual_ty.visibilis.node.Node;
 import de.cas_ual_ty.visibilis.node.NodeType;
@@ -19,6 +20,10 @@ public class MMNodeTypes
 {
     public static final NodeType<Node> SELEKTOR_SENDER = null;
     
+    public static final NodeType<Node> SORTER_ENTITY = null;
+    public static final NodeType<Node> SORTER_LIVING_ENTITY = null;
+    public static final NodeType<Node> SORTER_PLAYER = null;
+    
     @SubscribeEvent
     public static void register(RegistryEvent.Register<NodeType<?>> event)
     {
@@ -31,5 +36,20 @@ public class MMNodeTypes
                 list.add(new TargetEntity(data.getCommandSender().getEntity()));
             }
         })).setRegistryName(MagicaMundi.MOD_ID, "selektor_sender"));
+        
+        registry.register(new NodeType<>(SorterSimple.createSorterSimple((target) ->
+        {
+            return target instanceof TargetEntity;
+        })).setRegistryName(MagicaMundi.MOD_ID, "sorter_entity"));
+        
+        registry.register(new NodeType<>(SorterSimple.createSorterSimple((target) ->
+        {
+            return target instanceof TargetEntity && ((TargetEntity)target).isLivingEntity();
+        })).setRegistryName(MagicaMundi.MOD_ID, "sorter_living_entity"));
+        
+        registry.register(new NodeType<>(SorterSimple.createSorterSimple((target) ->
+        {
+            return target instanceof TargetEntity && ((TargetEntity)target).isPlayerEntity();
+        })).setRegistryName(MagicaMundi.MOD_ID, "sorter_player"));
     }
 }
