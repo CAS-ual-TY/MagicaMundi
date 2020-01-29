@@ -37,17 +37,17 @@ public class MMNodeTypes
             }
         })).setRegistryName(MagicaMundi.MOD_ID, "selektor_sender"));
         
-        registry.register(new NodeType<>(SorterSimple.createSorterSimple((target) ->
+        registry.register(new NodeType<>(SorterSimple.createSorterSimple((data, target) ->
         {
             return target instanceof TargetEntity;
         })).setRegistryName(MagicaMundi.MOD_ID, "sorter_entity"));
         
-        registry.register(new NodeType<>(SorterSimple.createSorterSimple((target) ->
+        registry.register(new NodeType<>(SorterSimple.createSorterSimple((data, target) ->
         {
             return target instanceof TargetEntity && ((TargetEntity)target).isLivingEntity();
         })).setRegistryName(MagicaMundi.MOD_ID, "sorter_living_entity"));
         
-        registry.register(new NodeType<>(SorterSimple.createSorterSimple((target) ->
+        registry.register(new NodeType<>(SorterSimple.createSorterSimple((data, target) ->
         {
             return target instanceof TargetEntity && ((TargetEntity)target).isPlayerEntity();
         })).setRegistryName(MagicaMundi.MOD_ID, "sorter_player"));

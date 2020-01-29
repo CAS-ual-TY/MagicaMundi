@@ -1,7 +1,7 @@
 package de.cas_ual_ty.magicamundi.node.sorter;
 
 import java.util.List;
-import java.util.function.Function;
+import java.util.function.BiFunction;
 
 import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.target.Target;
@@ -19,7 +19,7 @@ public abstract class SorterSimple extends Sorter
     {
         for(Target t : list1)
         {
-            if(!this.keep(t))
+            if(!this.keep(data, t))
             {
                 list2.add(t);
             }
@@ -33,16 +33,16 @@ public abstract class SorterSimple extends Sorter
         return true;
     }
     
-    public abstract boolean keep(Target target);
+    public abstract boolean keep(MMDataProvider data, Target target);
     
-    public static NodeType.IFactory<SorterSimple> createSorterSimple(Function<Target, Boolean> function)
+    public static NodeType.IFactory<SorterSimple> createSorterSimple(BiFunction<MMDataProvider, Target, Boolean> function)
     {
         return (type) -> new SorterSimple(type)
         {
             @Override
-            public boolean keep(Target target)
+            public boolean keep(MMDataProvider data, Target target)
             {
-                return function.apply(target);
+                return function.apply(data, target);
             }
         };
     }
