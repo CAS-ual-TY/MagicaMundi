@@ -1,6 +1,8 @@
 package de.cas_ual_ty.magicamundi.node.effect;
 
 import java.util.List;
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
 
 import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.target.Target;
@@ -28,4 +30,25 @@ public abstract class EffectSimple extends Effect
     }
     
     public abstract boolean applyEffect(MMDataProvider data, Target target);
+    
+    public static NodeType.IFactory<EffectSimple> createTypeEffectSimple(BiConsumer<MMDataProvider, Target> function)
+    {
+        return EffectSimple.createTypeEffectSimple((data, target) ->
+        {
+            function.accept(data, target);
+            return true;
+        });
+    }
+    
+    public static NodeType.IFactory<EffectSimple> createTypeEffectSimple(BiFunction<MMDataProvider, Target, Boolean> function)
+    {
+        return (type) -> new EffectSimple(type)
+        {
+            @Override
+            public boolean applyEffect(MMDataProvider data, Target target)
+            {
+                return function.apply(data, target);
+            }
+        };
+    }
 }
