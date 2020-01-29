@@ -1,6 +1,7 @@
 package de.cas_ual_ty.magicamundi.node.sorter;
 
 import java.util.List;
+import java.util.function.Function;
 
 import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.target.Target;
@@ -33,4 +34,16 @@ public abstract class SorterSimple extends Sorter
     }
     
     public abstract boolean keep(Target target);
+    
+    public static NodeType.IFactory<SorterSimple> createSorterSimple(Function<Target, Boolean> function)
+    {
+        return (type) -> new SorterSimple(type)
+        {
+            @Override
+            public boolean keep(Target target)
+            {
+                return function.apply(target);
+            }
+        };
+    }
 }
