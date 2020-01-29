@@ -1,6 +1,8 @@
 package de.cas_ual_ty.magicamundi.node.selektor;
 
 import java.util.List;
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
 
 import de.cas_ual_ty.magicamundi.node.MMNode;
 import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
@@ -67,5 +69,26 @@ public abstract class Selektor extends MMNode
     public float[] getTextColor()
     {
         return MMDataTypes.TARGETS_LIST.getTextColor();
+    }
+    
+    public static NodeType.IFactory<Selektor> createTypeSelektor(BiConsumer<MMDataProvider, List<Target>> function)
+    {
+        return Selektor.createTypeSelektor((data, list) ->
+        {
+            function.accept(data, list);
+            return true;
+        });
+    }
+    
+    public static NodeType.IFactory<Selektor> createTypeSelektor(BiFunction<MMDataProvider, List<Target>, Boolean> function)
+    {
+        return (type) -> new Selektor(type)
+        {
+            @Override
+            public boolean findTargets(MMDataProvider data, List<Target> list)
+            {
+                return function.apply(data, list);
+            }
+        };
     }
 }
