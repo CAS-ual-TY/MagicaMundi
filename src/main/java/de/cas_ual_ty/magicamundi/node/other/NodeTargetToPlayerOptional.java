@@ -17,6 +17,7 @@ public class NodeTargetToPlayerOptional extends Node
     public final Output<Object> out1Exec;
     public final Output<PlayerEntity> out2Player;
     public final Output<Object> out3Exec;
+    public final Input<Object> in1Exec;
     public final Input<Target> in2Target;
     
     protected PlayerEntity value;
@@ -27,6 +28,7 @@ public class NodeTargetToPlayerOptional extends Node
         this.addOutput(this.out1Exec = new Output<>(this, VDataTypes.EXEC, "out1"));
         this.addOutput(this.out2Player = new Output<>(this, VDataTypes.PLAYER, "out2"));
         this.addOutput(this.out3Exec = new Output<>(this, VDataTypes.EXEC, "out3"));
+        this.addInput(this.in1Exec = new Input<>(this, VDataTypes.EXEC, "in1"));
         this.addInput(this.in2Target = new Input<>(this, MMDataTypes.TARGET, "in2"));
     }
     
