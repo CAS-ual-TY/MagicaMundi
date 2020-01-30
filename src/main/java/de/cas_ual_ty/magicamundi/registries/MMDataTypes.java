@@ -38,7 +38,7 @@ public class MMDataTypes
         MMDataTypes.TARGET.registerConverter(VDataTypes.PLAYER, TargetEntity::new);
         MMDataTypes.TARGETS_LIST.registerConverter(MMDataTypes.TARGET, (target) ->
         {
-            List<Target> list = new LinkedList<Target>();
+            List<Target> list = new LinkedList<>();
             list.add(target);
             return list;
         });
