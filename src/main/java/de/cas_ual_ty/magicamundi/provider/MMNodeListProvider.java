@@ -23,5 +23,8 @@ public class MMNodeListProvider extends NodeListProviderBase
         list.add(MMNodeTypes.SORTER_PLAYER.instantiate());
         
         list.add(MMNodeTypes.EFFECT_FIRE.instantiate());
+        
+        list.add(MMNodeTypes.TARGET_TO_PLAYER_OPTIONAL.instantiate());
+        list.add(MMNodeTypes.ITERATE_TARGETS_LIST.instantiate());
     }
 }
