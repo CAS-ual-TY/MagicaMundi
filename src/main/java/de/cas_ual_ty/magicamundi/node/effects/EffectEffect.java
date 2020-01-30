@@ -1,4 +1,4 @@
-package de.cas_ual_ty.magicamundi.node.effect;
+package de.cas_ual_ty.magicamundi.node.effects;
 
 import de.cas_ual_ty.magicamundi.node.EffectSimple;
 import de.cas_ual_ty.magicamundi.provider.MMDataProvider;
