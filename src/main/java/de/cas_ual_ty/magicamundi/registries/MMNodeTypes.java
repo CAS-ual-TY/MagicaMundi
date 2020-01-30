@@ -1,7 +1,7 @@
 package de.cas_ual_ty.magicamundi.registries;
 
 import de.cas_ual_ty.magicamundi.MagicaMundi;
-import de.cas_ual_ty.magicamundi.node.Selektor;
+import de.cas_ual_ty.magicamundi.node.Selector;
 import de.cas_ual_ty.magicamundi.node.SorterSimple;
 import de.cas_ual_ty.magicamundi.node.effects.EffectFire;
 import de.cas_ual_ty.magicamundi.node.other.NodeIterateTargetsList;
@@ -21,7 +21,7 @@ import net.minecraftforge.registries.ObjectHolder;
 @ObjectHolder(MagicaMundi.MOD_ID)
 public class MMNodeTypes
 {
-    public static final NodeType<Node> SELEKTOR_SENDER = null;
+    public static final NodeType<Node> SELECTOR_SENDER = null;
     
     public static final NodeType<Node> SORTER_ENTITY = null;
     public static final NodeType<Node> SORTER_LIVING_ENTITY = null;
@@ -37,13 +37,13 @@ public class MMNodeTypes
     {
         IForgeRegistry<NodeType<?>> registry = event.getRegistry();
         
-        registry.register(new NodeType<>(Selektor.createTypeSelektor((data, list) ->
+        registry.register(new NodeType<>(Selector.createTypeSelector((data, list) ->
         {
             if(data.getCommandSender().getEntity() instanceof LivingEntity)
             {
                 list.add(new TargetEntity(data.getCommandSender().getEntity()));
             }
-        })).setRegistryName(MagicaMundi.MOD_ID, "selektor_sender"));
+        })).setRegistryName(MagicaMundi.MOD_ID, "selector_sender"));
         
         registry.register(new NodeType<>(SorterSimple.createSorterSimple((data, target) ->
         {

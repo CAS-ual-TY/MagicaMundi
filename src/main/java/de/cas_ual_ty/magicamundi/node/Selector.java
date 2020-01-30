@@ -14,7 +14,7 @@ import de.cas_ual_ty.visibilis.node.field.Output;
 import de.cas_ual_ty.visibilis.registries.VDataTypes;
 import de.cas_ual_ty.visibilis.util.VUtility;
 
-public abstract class Selektor extends MMNode
+public abstract class Selector extends MMNode
 {
     public final Output<Object> out1Exec;
     public final Output<List<Target>> out2TargetsList;
@@ -22,7 +22,7 @@ public abstract class Selektor extends MMNode
     
     public final List<Target> targetsList;
     
-    public Selektor(NodeType<?> type)
+    public Selector(NodeType<?> type)
     {
         super(type);
         this.addOutput(this.out1Exec = new Output<>(this, VDataTypes.EXEC, "out1"));
@@ -82,18 +82,18 @@ public abstract class Selektor extends MMNode
         return MMDataTypes.TARGETS_LIST.getTextColor();
     }
     
-    public static NodeType.IFactory<Selektor> createTypeSelektor(BiConsumer<MMDataProvider, List<Target>> function)
+    public static NodeType.IFactory<Selector> createTypeSelector(BiConsumer<MMDataProvider, List<Target>> function)
     {
-        return Selektor.createTypeSelektor((data, list) ->
+        return Selector.createTypeSelector((data, list) ->
         {
             function.accept(data, list);
             return true;
         });
     }
     
-    public static NodeType.IFactory<Selektor> createTypeSelektor(BiFunction<MMDataProvider, List<Target>, Boolean> function)
+    public static NodeType.IFactory<Selector> createTypeSelector(BiFunction<MMDataProvider, List<Target>, Boolean> function)
     {
-        return (type) -> new Selektor(type)
+        return (type) -> new Selector(type)
         {
             @Override
             public boolean findTargets(MMDataProvider data, List<Target> list)

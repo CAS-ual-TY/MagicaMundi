@@ -16,7 +16,7 @@ public class MMNodeListProvider extends NodeListProviderBase
     
     public static void mmNodes(ArrayList<Node> list)
     {
-        list.add(MMNodeTypes.SELEKTOR_SENDER.instantiate());
+        list.add(MMNodeTypes.SELECTOR_SENDER.instantiate());
         
         list.add(MMNodeTypes.SORTER_ENTITY.instantiate());
         list.add(MMNodeTypes.SORTER_LIVING_ENTITY.instantiate());
