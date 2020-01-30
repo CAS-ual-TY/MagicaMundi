@@ -35,8 +35,14 @@ public abstract class Selektor extends MMNode
     @Override
     public boolean doCalculate(MMDataProvider data)
     {
-        this.targetsList.clear();
         return this.findTargets(data, this.targetsList);
+    }
+    
+    @Override
+    public void resetValues()
+    {
+        this.targetsList.clear();
+        super.resetValues();
     }
     
     /**
@@ -57,6 +63,12 @@ public abstract class Selektor extends MMNode
         }
         
         return null;
+    }
+    
+    @Override
+    public Output<Object> getOutExec(int index)
+    {
+        return index == 0 ? this.out1Exec : null;
     }
     
     @Override
