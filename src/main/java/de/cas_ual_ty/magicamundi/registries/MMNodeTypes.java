@@ -6,6 +6,7 @@ import de.cas_ual_ty.magicamundi.node.SorterSimple;
 import de.cas_ual_ty.magicamundi.node.effects.EffectFire;
 import de.cas_ual_ty.magicamundi.node.other.NodeIterateTargetsList;
 import de.cas_ual_ty.magicamundi.node.other.NodeTargetToPlayerOptional;
+import de.cas_ual_ty.magicamundi.target.TargetBlockPos;
 import de.cas_ual_ty.magicamundi.target.TargetEntity;
 import de.cas_ual_ty.visibilis.node.Node;
 import de.cas_ual_ty.visibilis.node.NodeType;
@@ -26,6 +27,7 @@ public class MMNodeTypes
     public static final NodeType<Node> SORTER_ENTITY = null;
     public static final NodeType<Node> SORTER_LIVING_ENTITY = null;
     public static final NodeType<Node> SORTER_PLAYER = null;
+    public static final NodeType<Node> SORTER_BLOCK = null;
     
     public static final NodeType<Node> EFFECT_FIRE = null;
     
@@ -59,6 +61,11 @@ public class MMNodeTypes
         {
             return target instanceof TargetEntity && ((TargetEntity)target).isPlayerEntity();
         })).setRegistryName(MagicaMundi.MOD_ID, "sorter_player"));
+        
+        registry.register(new NodeType<>(SorterSimple.createSorterSimple((data, target) ->
+        {
+            return target instanceof TargetBlockPos;
+        })).setRegistryName(MagicaMundi.MOD_ID, "sorter_block"));
         
         registry.register(new NodeType<>(EffectFire::new).setRegistryName(MagicaMundi.MOD_ID, "effect_fire"));
         

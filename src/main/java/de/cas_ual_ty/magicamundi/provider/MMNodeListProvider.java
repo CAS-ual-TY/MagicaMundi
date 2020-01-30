@@ -21,6 +21,7 @@ public class MMNodeListProvider extends NodeListProviderBase
         list.add(MMNodeTypes.SORTER_ENTITY.instantiate());
         list.add(MMNodeTypes.SORTER_LIVING_ENTITY.instantiate());
         list.add(MMNodeTypes.SORTER_PLAYER.instantiate());
+        list.add(MMNodeTypes.SORTER_BLOCK.instantiate());
         
         list.add(MMNodeTypes.EFFECT_FIRE.instantiate());
         
