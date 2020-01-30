@@ -59,4 +59,16 @@ public class NodeTargetToPlayerOptional extends Node
     {
         return index == 0 ? (this.value == null ? this.out3Exec : this.out1Exec) : null;
     }
+    
+    @Override
+    public float[] getColor()
+    {
+        return MMDataTypes.TARGET.getColor();
+    }
+    
+    @Override
+    public float[] getTextColor()
+    {
+        return MMDataTypes.TARGET.getTextColor();
+    }
 }
