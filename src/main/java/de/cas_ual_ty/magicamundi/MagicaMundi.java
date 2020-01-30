@@ -1,5 +1,6 @@
 package de.cas_ual_ty.magicamundi;
 
+import de.cas_ual_ty.magicamundi.registries.MMDataTypes;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -22,7 +23,7 @@ public class MagicaMundi
     
     public void setup(FMLCommonSetupEvent event)
     {
-        
+        MMDataTypes.addConverters();
     }
     
     public static void warn(String s)

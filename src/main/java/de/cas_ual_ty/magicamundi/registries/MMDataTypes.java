@@ -4,7 +4,9 @@ import java.util.List;
 
 import de.cas_ual_ty.magicamundi.MagicaMundi;
 import de.cas_ual_ty.magicamundi.target.Target;
+import de.cas_ual_ty.magicamundi.target.TargetEntity;
 import de.cas_ual_ty.visibilis.datatype.DataType;
+import de.cas_ual_ty.visibilis.registries.VDataTypes;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -17,6 +19,7 @@ import net.minecraftforge.registries.ObjectHolder;
 public class MMDataTypes
 {
     public static final DataType<List<Target>> TARGETS_LIST = null;
+    public static final DataType<Target> TARGET = null;
     
     @SuppressWarnings("unchecked")
     @SubscribeEvent
@@ -24,6 +27,13 @@ public class MMDataTypes
     {
         IForgeRegistry<DataType<?>> registry = event.getRegistry();
         
-        registry.register(new DataType<List<Target>>(new float[] { 1F, 0.5F, 1F }, (length) -> new List[length]).setRegistryName(MagicaMundi.MOD_ID, "targets_list"));
+        registry.register(new DataType<List<Target>>(new float[] { 1F, 0.25F, 1F }, (length) -> new List[length]).setRegistryName(MagicaMundi.MOD_ID, "targets_list"));
+        registry.register(new DataType<>(new float[] { 1F, 0.5F, 1F }, (length) -> new Target[length]).setRegistryName(MagicaMundi.MOD_ID, "target"));
+    }
+    
+    // Called from FMLCommonSetupEvent
+    public static void addConverters()
+    {
+        MMDataTypes.TARGET.registerConverter(VDataTypes.PLAYER, TargetEntity::new);
     }
 }
