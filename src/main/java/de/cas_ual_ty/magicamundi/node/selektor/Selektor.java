@@ -5,7 +5,7 @@ import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 
 import de.cas_ual_ty.magicamundi.node.MMNode;
-import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
+import de.cas_ual_ty.magicamundi.provider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.registries.MMDataTypes;
 import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.magicamundi.util.MMUtility;

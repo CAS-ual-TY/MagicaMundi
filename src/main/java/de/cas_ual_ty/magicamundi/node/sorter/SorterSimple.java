@@ -3,7 +3,7 @@ package de.cas_ual_ty.magicamundi.node.sorter;
 import java.util.List;
 import java.util.function.BiFunction;
 
-import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
+import de.cas_ual_ty.magicamundi.provider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.visibilis.node.NodeType;
 

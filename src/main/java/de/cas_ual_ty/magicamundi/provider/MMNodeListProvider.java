@@ -1,4 +1,4 @@
-package de.cas_ual_ty.magicamundi;
+package de.cas_ual_ty.magicamundi.provider;
 
 import java.util.ArrayList;
 

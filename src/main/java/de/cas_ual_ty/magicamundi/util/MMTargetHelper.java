@@ -2,7 +2,7 @@ package de.cas_ual_ty.magicamundi.util;
 
 import java.util.function.BiFunction;
 
-import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
+import de.cas_ual_ty.magicamundi.provider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.magicamundi.target.TargetBlockPos;
 import de.cas_ual_ty.magicamundi.target.TargetEntity;

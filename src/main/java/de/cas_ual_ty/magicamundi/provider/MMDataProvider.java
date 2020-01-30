@@ -1,4 +1,4 @@
-package de.cas_ual_ty.magicamundi.node.dataprovider;
+package de.cas_ual_ty.magicamundi.provider;
 
 import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.visibilis.node.dataprovider.DataProvider;

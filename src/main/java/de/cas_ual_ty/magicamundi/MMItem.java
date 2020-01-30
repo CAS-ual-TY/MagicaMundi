@@ -1,6 +1,7 @@
 package de.cas_ual_ty.magicamundi;
 
-import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
+import de.cas_ual_ty.magicamundi.provider.MMDataProvider;
+import de.cas_ual_ty.magicamundi.provider.MMNodeListProvider;
 import de.cas_ual_ty.visibilis.Visibilis;
 import de.cas_ual_ty.visibilis.print.NodeListProvider;
 import de.cas_ual_ty.visibilis.print.item.ItemPrintClickable;
