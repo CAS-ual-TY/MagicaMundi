@@ -4,6 +4,7 @@ import de.cas_ual_ty.magicamundi.MagicaMundi;
 import de.cas_ual_ty.magicamundi.node.Selektor;
 import de.cas_ual_ty.magicamundi.node.SorterSimple;
 import de.cas_ual_ty.magicamundi.node.effects.EffectFire;
+import de.cas_ual_ty.magicamundi.node.other.NodeTargetToPlayerOptional;
 import de.cas_ual_ty.magicamundi.target.TargetEntity;
 import de.cas_ual_ty.visibilis.node.Node;
 import de.cas_ual_ty.visibilis.node.NodeType;
@@ -26,6 +27,8 @@ public class MMNodeTypes
     public static final NodeType<Node> SORTER_PLAYER = null;
     
     public static final NodeType<Node> EFFECT_FIRE = null;
+    
+    public static final NodeType<Node> TARGET_TO_PLAYER_OPTIONAL = null;
     
     @SubscribeEvent
     public static void register(RegistryEvent.Register<NodeType<?>> event)
@@ -56,5 +59,7 @@ public class MMNodeTypes
         })).setRegistryName(MagicaMundi.MOD_ID, "sorter_player"));
         
         registry.register(new NodeType<>(EffectFire::new).setRegistryName(MagicaMundi.MOD_ID, "effect_fire"));
+        
+        registry.register(new NodeType<>(NodeTargetToPlayerOptional::new).setRegistryName(MagicaMundi.MOD_ID, "target_to_player_optional"));
     }
 }
