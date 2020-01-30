@@ -1,4 +1,4 @@
-package de.cas_ual_ty.magicamundi.node.sorter;
+package de.cas_ual_ty.magicamundi.node;
 
 import java.util.List;
 import java.util.function.BiFunction;

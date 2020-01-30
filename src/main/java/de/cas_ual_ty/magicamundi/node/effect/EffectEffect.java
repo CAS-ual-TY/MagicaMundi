@@ -1,5 +1,6 @@
 package de.cas_ual_ty.magicamundi.node.effect;
 
+import de.cas_ual_ty.magicamundi.node.EffectSimple;
 import de.cas_ual_ty.magicamundi.provider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.magicamundi.target.TargetEntity;

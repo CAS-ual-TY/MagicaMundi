@@ -1,9 +1,9 @@
 package de.cas_ual_ty.magicamundi.registries;
 
 import de.cas_ual_ty.magicamundi.MagicaMundi;
+import de.cas_ual_ty.magicamundi.node.Selektor;
+import de.cas_ual_ty.magicamundi.node.SorterSimple;
 import de.cas_ual_ty.magicamundi.node.effect.EffectFire;
-import de.cas_ual_ty.magicamundi.node.selektor.Selektor;
-import de.cas_ual_ty.magicamundi.node.sorter.SorterSimple;
 import de.cas_ual_ty.magicamundi.target.TargetEntity;
 import de.cas_ual_ty.visibilis.node.Node;
 import de.cas_ual_ty.visibilis.node.NodeType;

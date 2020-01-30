@@ -1,10 +1,9 @@
-package de.cas_ual_ty.magicamundi.node.selektor;
+package de.cas_ual_ty.magicamundi.node;
 
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 
-import de.cas_ual_ty.magicamundi.node.MMNode;
 import de.cas_ual_ty.magicamundi.provider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.registries.MMDataTypes;
 import de.cas_ual_ty.magicamundi.target.Target;

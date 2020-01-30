@@ -2,6 +2,7 @@ package de.cas_ual_ty.magicamundi.node.effect;
 
 import java.util.List;
 
+import de.cas_ual_ty.magicamundi.node.Effect;
 import de.cas_ual_ty.magicamundi.provider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.target.Target;
 import de.cas_ual_ty.magicamundi.target.TargetBlockPos;

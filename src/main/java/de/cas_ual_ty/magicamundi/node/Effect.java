@@ -1,8 +1,7 @@
-package de.cas_ual_ty.magicamundi.node.effect;
+package de.cas_ual_ty.magicamundi.node;
 
 import java.util.List;
 
-import de.cas_ual_ty.magicamundi.node.MMNode;
 import de.cas_ual_ty.magicamundi.provider.MMDataProvider;
 import de.cas_ual_ty.magicamundi.registries.MMDataTypes;
 import de.cas_ual_ty.magicamundi.target.Target;
