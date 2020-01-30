@@ -4,7 +4,6 @@ import de.cas_ual_ty.magicamundi.node.dataprovider.MMDataProvider;
 import de.cas_ual_ty.visibilis.node.ExecContext;
 import de.cas_ual_ty.visibilis.node.Node;
 import de.cas_ual_ty.visibilis.node.NodeType;
-import de.cas_ual_ty.visibilis.node.field.Output;
 
 public abstract class MMNode extends Node
 {
@@ -25,16 +24,4 @@ public abstract class MMNode extends Node
     }
     
     public abstract boolean doCalculate(MMDataProvider data);
-    
-    @Override
-    public <O> O getOutputValue(Output<O> out)
-    {
-        return null;
-    }
-    
-    @Override
-    public String getID()
-    {
-        return null;
-    }
 }
