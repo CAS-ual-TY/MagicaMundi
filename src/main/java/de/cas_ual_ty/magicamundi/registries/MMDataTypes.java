@@ -1,5 +1,6 @@
 package de.cas_ual_ty.magicamundi.registries;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import de.cas_ual_ty.magicamundi.MagicaMundi;
@@ -35,5 +36,11 @@ public class MMDataTypes
     public static void addConverters()
     {
         MMDataTypes.TARGET.registerConverter(VDataTypes.PLAYER, TargetEntity::new);
+        MMDataTypes.TARGETS_LIST.registerConverter(MMDataTypes.TARGET, (target) ->
+        {
+            List<Target> list = new LinkedList<Target>();
+            list.add(target);
+            return list;
+        });
     }
 }
