@@ -1,14 +1,12 @@
 package de.cas_ual_ty.magicamundi.registries;
 
 import de.cas_ual_ty.magicamundi.MagicaMundi;
-import de.cas_ual_ty.magicamundi.node.effect.EffectSimple;
+import de.cas_ual_ty.magicamundi.node.effect.EffectFire;
 import de.cas_ual_ty.magicamundi.node.selektor.Selektor;
 import de.cas_ual_ty.magicamundi.node.sorter.SorterSimple;
 import de.cas_ual_ty.magicamundi.target.TargetEntity;
-import de.cas_ual_ty.magicamundi.util.MMTargetHelper;
 import de.cas_ual_ty.visibilis.node.Node;
 import de.cas_ual_ty.visibilis.node.NodeType;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -57,21 +55,6 @@ public class MMNodeTypes
             return target instanceof TargetEntity && ((TargetEntity)target).isPlayerEntity();
         })).setRegistryName(MagicaMundi.MOD_ID, "sorter_player"));
         
-        registry.register(new NodeType<>(EffectSimple.createTypeEffectSimple(new MMTargetHelper.TargetFunction((data, blockPos) ->
-        {
-            if(data.getWorld().isAirBlock(blockPos))
-            {
-                data.getWorld().setBlockState(blockPos, Blocks.FIRE.getDefaultState());
-            }
-            return true;
-        },
-            (data, entity) ->
-            {
-                if(entity instanceof LivingEntity)
-                {
-                    entity.setFire(5);
-                }
-                return true;
-            }))).setRegistryName(MagicaMundi.MOD_ID, "effect_fire"));
+        registry.register(new NodeType<>(EffectFire::new).setRegistryName(MagicaMundi.MOD_ID, "effect_fire"));
     }
 }
