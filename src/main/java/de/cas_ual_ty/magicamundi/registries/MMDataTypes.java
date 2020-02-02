@@ -42,6 +42,7 @@ public class MMDataTypes
             list.add(target);
             return list;
         });
+        VDataTypes.VECTOR3D.registerConverter(MMDataTypes.TARGET, (target) -> target.getPos());
         VDataTypes.BLOCK_POS.registerConverter(MMDataTypes.TARGET, (target) -> target.getBlockPos());
     }
 }
