@@ -1,4 +1,7 @@
 {
+    "group.targets": "Targets",
+    "group.targets.tags": "targets",
+    
     "_commentSelectors": "--- Selectors ---",
     "group.selectors": "Selectors",
     "group.selectors.tags": "selectors",
