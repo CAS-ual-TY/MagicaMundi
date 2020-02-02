@@ -70,7 +70,6 @@
     "field.magicamundi:target_to_player_optional.out2": "Player",
     "field.magicamundi:target_to_player_optional.out3": "(O) Player == null",
     "field.magicamundi:target_to_player_optional.in1": "(I)",
-    "node.magicamundi:target_to_player_optional.groups": "player",
     "field.magicamundi:target_to_player_optional.in2": "Target",
     "node.magicamundi:target_to_player_optional.groups": "targets;player",
     
@@ -81,6 +80,5 @@
     "field.magicamundi:iterate_targets_list.out4": "(O) Index == List Size",
     "field.magicamundi:iterate_targets_list.in1": "(I)",
     "field.magicamundi:iterate_targets_list.in2": "Targets List",
-    "node.magicamundi:iterate_targets_list.groups": "player"
     "node.magicamundi:iterate_targets_list.groups": "targets;exec",
 }
