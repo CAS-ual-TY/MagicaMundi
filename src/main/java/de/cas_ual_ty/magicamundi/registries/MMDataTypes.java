@@ -42,5 +42,6 @@ public class MMDataTypes
             list.add(target);
             return list;
         });
+        VDataTypes.BLOCK_POS.registerConverter(MMDataTypes.TARGET, (target) -> target.getBlockPos());
     }
 }
