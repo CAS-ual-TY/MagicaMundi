@@ -44,5 +44,6 @@ public class MMDataTypes
         });
         VDataTypes.VECTOR3D.registerConverter(MMDataTypes.TARGET, (target) -> target.getPos());
         VDataTypes.BLOCK_POS.registerConverter(MMDataTypes.TARGET, (target) -> target.getBlockPos());
+        MMDataTypes.TARGET.registerConverter(VDataTypes.PLAYER, (player) -> new TargetEntity(player));
     }
 }
