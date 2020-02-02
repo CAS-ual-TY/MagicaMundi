@@ -5,6 +5,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 
 public class TargetEntity implements Target
 {
@@ -33,6 +34,12 @@ public class TargetEntity implements Target
         {
             this.livingEntity = null;
         }
+    }
+    
+    @Override
+    public World getWorld()
+    {
+        return this.getEntity().world;
     }
     
     @Override
