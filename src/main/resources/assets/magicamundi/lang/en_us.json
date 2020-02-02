@@ -81,4 +81,11 @@
     "field.magicamundi:iterate_targets_list.in1": "(I)",
     "field.magicamundi:iterate_targets_list.in2": "Targets List",
     "node.magicamundi:iterate_targets_list.groups": "targets;exec",
+    
+    "node.magicamundi:split_target": "Split Target",
+    "field.magicamundi:split_target.out1": "World",
+    "field.magicamundi:split_target.out2": "Vector",
+    "field.magicamundi:split_target.out3": "Block Pos",
+    "field.magicamundi:split_target.in1": "Target",
+    "node.magicamundi:split_target.groups": "targets"
 }

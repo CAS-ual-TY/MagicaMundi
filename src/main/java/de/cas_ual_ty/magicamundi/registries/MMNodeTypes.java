@@ -5,6 +5,7 @@ import de.cas_ual_ty.magicamundi.node.Selector;
 import de.cas_ual_ty.magicamundi.node.SorterSimple;
 import de.cas_ual_ty.magicamundi.node.effects.EffectFire;
 import de.cas_ual_ty.magicamundi.node.other.NodeIterateTargetsList;
+import de.cas_ual_ty.magicamundi.node.other.NodeSplitTarget;
 import de.cas_ual_ty.magicamundi.node.other.NodeTargetToPlayerOptional;
 import de.cas_ual_ty.magicamundi.target.TargetBlockPos;
 import de.cas_ual_ty.magicamundi.target.TargetEntity;
@@ -33,6 +34,7 @@ public class MMNodeTypes
     
     public static final NodeType<Node> TARGET_TO_PLAYER_OPTIONAL = null;
     public static final NodeType<Node> ITERATE_TARGETS_LIST = null;
+    public static final NodeType<Node> SPLIT_TARGET = null;
     
     @SubscribeEvent
     public static void register(RegistryEvent.Register<NodeType<?>> event)
@@ -71,5 +73,6 @@ public class MMNodeTypes
         
         registry.register(new NodeType<>(NodeTargetToPlayerOptional::new).setRegistryName(MagicaMundi.MOD_ID, "target_to_player_optional"));
         registry.register(new NodeType<>(NodeIterateTargetsList::new).setRegistryName(MagicaMundi.MOD_ID, "iterate_targets_list"));
+        registry.register(new NodeType<>(NodeSplitTarget::new).setRegistryName(MagicaMundi.MOD_ID, "split_target"));
     }
 }
