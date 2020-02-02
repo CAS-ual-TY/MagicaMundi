@@ -71,6 +71,7 @@
     "field.magicamundi:target_to_player_optional.out3": "(O) Player == null",
     "field.magicamundi:target_to_player_optional.in1": "(I)",
     "node.magicamundi:target_to_player_optional.groups": "player",
+    "field.magicamundi:target_to_player_optional.in2": "Target",
     "node.magicamundi:target_to_player_optional.groups": "targets;player",
     
     "node.magicamundi:iterate_targets_list": "Iterate Targets List",
