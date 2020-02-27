@@ -42,7 +42,7 @@ public class NodeSplitTarget extends Node
         this.blockPos = target.getBlockPos();
         return true;
     }
-
+    
     @Override
     public <O> O getOutputValue(Output<O> out)
     {

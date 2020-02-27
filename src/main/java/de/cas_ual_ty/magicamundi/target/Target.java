@@ -7,7 +7,9 @@ import net.minecraft.world.World;
 public interface Target
 {
     public abstract World getWorld();
+    
     public abstract BlockPos getBlockPos();
+    
     public abstract Vec3d getPos();
     
     @Override

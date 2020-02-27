@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import de.cas_ual_ty.magicamundi.registries.MMNodeTypes;
 import de.cas_ual_ty.visibilis.node.Node;
-import de.cas_ual_ty.visibilis.print.NodeListProviderBase;
+import de.cas_ual_ty.visibilis.print.provider.NodeListProviderBase;
 
 public class MMNodeListProvider extends NodeListProviderBase
 {
